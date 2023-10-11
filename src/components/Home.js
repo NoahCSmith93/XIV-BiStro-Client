@@ -1,11 +1,14 @@
+import BestsIndex from './bests/BestsIndex'
+import { Container } from 'react-bootstrap'
+
 const Home = (props) => {
-	// const { msgAlert, user } = props
-	console.log('props in home', props)
+	const { msgAlert, user } = props
 
 	return (
-		<>
-			<h2>Home Page</h2>
-		</>
+		<Container>
+			<h2>All of your BiS tables:</h2>
+			<BestsIndex msgAlert={msgAlert}/>
+		</Container>
 	)
 }
 

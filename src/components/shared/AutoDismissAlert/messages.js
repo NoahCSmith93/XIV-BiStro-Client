@@ -6,6 +6,11 @@ const messages = {
 	signOutSuccess: 'Come back soon!',
 	changePasswordSuccess: 'Password changed successfully!',
 	changePasswordFailure:'Failed to change passwords. Check your old password and try again.',
+	createBisTableSuccess: 'New BiS table created!',
+	createBisTableFailure: 'Something went wrong, please try again.',
+	updateItemSuccess: 'Item successfully updated!',
+	updateItemFailure: 'Something went wrong, please try again.',
+	indexBisTablesFailure: 'Error retrieving tables, please try again.',
 }
 
 module.exports = messages
