@@ -6,8 +6,17 @@ const Home = (props) => {
 
 	return (
 		<Container>
+			{user ?
+			<>
 			<h2>All of your BiS tables:</h2>
 			<BestsIndex msgAlert={msgAlert}/>
+			</>
+			:
+			<>
+			<h2>Home Page</h2>
+			<h3>Log in to get started!</h3>
+			</>
+			}
 		</Container>
 	)
 }
