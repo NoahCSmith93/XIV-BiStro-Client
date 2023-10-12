@@ -9,7 +9,7 @@ const Home = (props) => {
 			{user ?
 			<>
 			<h2>All of your BiS tables:</h2>
-			<BestsIndex msgAlert={msgAlert}/>
+			<BestsIndex user={user} msgAlert={msgAlert}/>
 			</>
 			:
 			<>

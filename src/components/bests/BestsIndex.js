@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 // api function
 import { getAllBests } from '../../api/best'
@@ -12,13 +12,19 @@ const cardContainerLayout = {
     justifyContent: 'center'
 }
 
+const cardButtonLayout = {
+    width: '30%',
+    margin: 3,
+    fontSize: '12px'
+}
+
 const BestsIndex = (props) => {
     const [bests, setBests] = useState(null)
     const [error, setError] = useState(false)
-    const { msgAlert } = props
+    const { user, msgAlert } = props
 
     useEffect(() => {
-        getAllBests()
+        getAllBests(user)
             .then(res => {
                 setBests(res.data.bests)
             })
@@ -43,9 +49,25 @@ const BestsIndex = (props) => {
     }
 
     const bestCards = bests.map(best => (
-        <Card key={best.id} style={{width: '30%', margin: 5}}>
+        <Card key={best._id} style={{width: '35%', margin: 5}}>
             <Card.Header>{best.title}</Card.Header>
-            <Card.Body>Nothing yet</Card.Body>
+            <Card.Body>
+                <Link to={`/bests/${best._id}`}>
+                    <Button style={ cardButtonLayout } variant='primary'>
+                        View
+                    </Button>
+                </Link>
+                <Link>
+                    <Button style={ cardButtonLayout } variant='warning'>
+                        Edit
+                    </Button>
+                </Link>
+                <Link>
+                    <Button style={ cardButtonLayout } variant='danger'>
+                        Delete
+                    </Button>
+                </Link>
+            </Card.Body>
         </Card>
     ))
 

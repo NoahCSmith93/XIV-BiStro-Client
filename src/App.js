@@ -12,18 +12,16 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import BestShow from './components/bests/BestShow'
 
 const App = () => {
 
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 
-	console.log('user in app', user)
-	console.log('message alerts', msgAlerts)
 	const clearUser = () => {
-    console.log('clear user ran')
-    setUser(null)
-  }
+		setUser(null)
+  	}
 
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
@@ -44,6 +42,13 @@ const App = () => {
 		<Fragment>
 			<Header user={user} />
 			<Routes>
+				<Route
+					path='/bests/:id'
+					element={
+						<RequireAuth user={user}>
+							<BestShow msgAlert={msgAlert} />
+						</RequireAuth>}
+				/>
 				<Route 
 					path='/' 
 					element={<Home msgAlert={msgAlert} user={user} />} 
