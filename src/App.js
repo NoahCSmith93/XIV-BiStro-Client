@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import BestShow from './components/bests/BestShow'
+import BestEdit from './components/bests/BestEdit'
 
 const App = () => {
 
@@ -47,7 +48,16 @@ const App = () => {
 					element={
 						<RequireAuth user={user}>
 							<BestShow msgAlert={msgAlert} />
-						</RequireAuth>}
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path='/bests/:id/edit'
+					element={
+						<RequireAuth user={user}>
+							<BestEdit msgAlert={msgAlert} />
+						</RequireAuth>
+					}
 				/>
 				<Route 
 					path='/' 

@@ -1,7 +1,6 @@
 import { Table } from 'react-bootstrap'
 
 export default function BestTable({ table }) {
-    console.log("This is the table passed in", table)
 
     return (
         <Table bordered variant='dark'>

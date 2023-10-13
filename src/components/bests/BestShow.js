@@ -10,8 +10,6 @@ export default function({ msgAlert }) {
     const [error, setError] = useState(false)
     const [isHidden, setIsHidden] = useState(false)
     const { id } = useParams()
-    
-    console.log("this is the bestId", id)
 
     useEffect(() => {
         getOneBest(id)
@@ -31,7 +29,7 @@ export default function({ msgAlert }) {
     useEffect(() => {
         const handleResize = () => {
           // Hide the element if the screen width is less than 600px
-          setIsHidden(window.innerWidth < 1000);
+          setIsHidden(window.innerWidth < 1200);
         };
     
         // Initial check on component mount
@@ -46,8 +44,6 @@ export default function({ msgAlert }) {
         };
       }, []);
 
-    console.log("This is the best table", best)
-
     // Data state handling branches
     if (error) {
         return <p>Error!</p>
@@ -58,12 +54,17 @@ export default function({ msgAlert }) {
 
     return (
         <Container>
+            <Row><Col><Link to='/'>{`< Back`}</Link></Col></Row>
             <Row>
               <Col>
-                <h2>Current Gear</h2>
+                <h2>Current Gear &nbsp;
+                  <Link className='btn btn-info' to={`/bests/${id}/edit`}>Edit</Link>
+                </h2>
               </Col>  
               <Col>
-                {!isHidden && (<h2>Best in Slot Gear</h2>)}
+                {!isHidden && (<h2>Best in Slot Gear &nbsp;
+                  <Link className='btn btn-info' to={`/bests/${id}/edit`}>Edit</Link>
+                </h2>)}
               </Col>  
             </Row>
             <Row>
@@ -71,7 +72,9 @@ export default function({ msgAlert }) {
                 <BestTable table={best.currentGear} />
               </Col>
               <Col>
-                {isHidden && (<h2>Best in Slot Gear</h2>)}
+                {isHidden && (<h2>Best in Slot Gear &nbsp;
+                  <Link className='btn btn-info' to={`/bests/${id}/edit`}>Edit</Link>
+                </h2>)}
                 <BestTable table={best.bestGear} />
               </Col>
             </Row>
