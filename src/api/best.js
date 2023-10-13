@@ -14,7 +14,6 @@ export const getAllBests = (user) => {
 
 // READ -> Show
 export const getOneBest = (id) => {
-	console.log("This is the id", id)
     return axios({
 		url: apiUrl + '/api/bests/' + id,
 		method: 'GET',
@@ -22,7 +21,36 @@ export const getOneBest = (id) => {
 }
 
 // CREATE -> Add a table
+export const createBest = (user, best) => {
+	return axios({
+		url: apiUrl + '/api/bests/',
+		method: 'POST',
+		headers: {
+			Authorization: `Token token=${user.token}`,
+		},
+		data: {best: best}
+	})
+}
 
 // UPDATE -> Change table title or an item
+export const updateBest = (user, best) => {
+	return axios({
+		url: apiUrl + '/api/bests/' + best._id,
+		method: 'PATCH',
+		headers: {
+			Authorization: `Token token=${user.token}`,
+		},
+		data: {best: best}
+	})
+}
 
 // DELETE -> Delete a table
+export const deleteBest = (user, id) => {
+	return axios({
+		url: apiUrl + '/api/bests/' + id,
+		method: 'DELETE',
+		headers: {
+			Authorization: `Token token=${user.token}`,
+		},
+	})
+}

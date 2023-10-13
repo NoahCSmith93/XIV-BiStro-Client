@@ -14,6 +14,8 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import BestShow from './components/bests/BestShow'
 import BestEdit from './components/bests/BestEdit'
+import BestConfirmDelete from './components/bests/BestConfirmDelete'
+import BestCreate from './components/bests/BestCreate'
 
 const App = () => {
 
@@ -55,7 +57,23 @@ const App = () => {
 					path='/bests/:id/edit'
 					element={
 						<RequireAuth user={user}>
-							<BestEdit msgAlert={msgAlert} />
+							<BestEdit user={user} msgAlert={msgAlert} />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path='/bests/:id/delete'
+					element={
+						<RequireAuth user={user}>
+							<BestConfirmDelete user={user} msgAlert={msgAlert} />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path='/bests/new'
+					element={
+						<RequireAuth user={user}>
+							<BestCreate user={user} msgAlert={msgAlert} />
 						</RequireAuth>
 					}
 				/>

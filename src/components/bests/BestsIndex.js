@@ -57,7 +57,7 @@ const BestsIndex = (props) => {
                         View
                     </Button>
                 </Link>
-                <Link to={`/bests/${best._id}/edit`}>
+                {/* <Link to={`/bests/${best._id}/edit`}>
                     <Button style={ cardButtonLayout } variant='warning'>
                         Edit
                     </Button>
@@ -66,7 +66,7 @@ const BestsIndex = (props) => {
                     <Button style={ cardButtonLayout } variant='danger'>
                         Delete
                     </Button>
-                </Link>
+                </Link> */}
             </Card.Body>
         </Card>
     ))

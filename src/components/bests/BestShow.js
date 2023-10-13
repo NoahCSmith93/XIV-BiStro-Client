@@ -54,16 +54,20 @@ export default function({ msgAlert }) {
 
     return (
         <Container>
-            <Row><Col><Link to='/'>{`< Back`}</Link></Col></Row>
+            <Row><Link to='/'>{`< Back`}</Link></Row>
             <Row>
               <Col>
                 <h2>Current Gear &nbsp;
                   <Link className='btn btn-info' to={`/bests/${id}/edit`}>Edit</Link>
+                  &nbsp;
+                  <Link className='btn btn-danger' to={`/bests/${id}/delete`}>Delete</Link>
                 </h2>
               </Col>  
               <Col>
                 {!isHidden && (<h2>Best in Slot Gear &nbsp;
                   <Link className='btn btn-info' to={`/bests/${id}/edit`}>Edit</Link>
+                  &nbsp;
+                  <Link className='btn btn-danger' to={`/bests/${id}/delete`}>Delete</Link>
                 </h2>)}
               </Col>  
             </Row>
@@ -74,6 +78,8 @@ export default function({ msgAlert }) {
               <Col>
                 {isHidden && (<h2>Best in Slot Gear &nbsp;
                   <Link className='btn btn-info' to={`/bests/${id}/edit`}>Edit</Link>
+                  &nbsp;
+                  <Link className='btn btn-danger' to={`/bests/${id}/delete`}>Delete</Link>
                 </h2>)}
                 <BestTable table={best.bestGear} />
               </Col>

@@ -11,6 +11,8 @@ const messages = {
 	updateItemSuccess: 'Item successfully updated!',
 	updateItemFailure: 'Something went wrong, please try again.',
 	indexBisTablesFailure: 'Error retrieving tables, please try again.',
+	removeBisTableSuccess: 'Successfully deleted table',
+	editBisTableSuccess: 'Successfully updated table'
 }
 
 module.exports = messages

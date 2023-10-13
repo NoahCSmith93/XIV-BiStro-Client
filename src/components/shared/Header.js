@@ -18,6 +18,9 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Item>
+		<Nav.Item className='m-2'>
+		    <Link to='/bests/new' style={linkStyle}>Create New</Link>
+        </Nav.Item>
 	</>
 )
 
